@@ -31,7 +31,7 @@
 ### Bietet
 - Fragen, bei denen es darum geht, architektonische Entscheidungen zu treffen
 - Dienstleistungen und Lösungen, die für jede Frage relevant sind
-- Verweise auf relevante Resourcen
+- Verweise auf relevante Ressourcen
 
 ----------------
 
@@ -43,7 +43,7 @@
 3. **Zuverlässigkeit** (Reliability)
     - Wiederherstellung nach Fehlern und Minimierung von Unterbrechungen
 4. **Leistungseffizienz** (Performance Efficiency)
-    - Sparsamer EInsatz von Resourcen
+    - Sparsamer Einsatz von Ressourcen
 5. **Kostenoptimierung** (Cost Optimization)
     - Vermeidung unnötiger Ausgaben
 
