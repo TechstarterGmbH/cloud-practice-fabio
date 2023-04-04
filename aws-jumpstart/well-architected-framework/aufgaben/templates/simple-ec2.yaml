@@ -37,3 +37,6 @@ Resources:
 Outputs:
   PublicIp:
     Description: MyWebApp Server public IP
+    Value: !GetAtt WebAppInstance.PublicIp
+    Export:
+      Name: !Sub "${AWS::StackName}-PublicIp"
