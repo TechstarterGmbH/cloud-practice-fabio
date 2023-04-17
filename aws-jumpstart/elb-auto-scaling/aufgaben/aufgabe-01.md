@@ -178,3 +178,12 @@ sudo yum install stress -y && sudo stress --cpu 4 --timeout 600
 - **Wichtig: Die Security Group muss so konfiguriert werden, dass du dich immer noch über SSH auf die Instanzen verbinden kannst!**
 
 
+
+## 4 Cleanup
+
+- Lösche alle Ressourcen die du erstellt hast in folgender Reihenfolge:
+  - Load Balancer
+  - Target Group
+  - Auto Scaling Group
+  - Launch Template
+  - Security Group
