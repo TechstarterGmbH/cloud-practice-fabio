@@ -43,7 +43,7 @@ Die Website wird nicht angezeigt, da der Bucket nicht öffentlich zugänglich is
     {
       "Sid": "Stmt1682277883982",
       "Action": [
-        "s3:GetObject"
+        "s3:GetObject",
       ],
       "Effect": "Allow",
       "Resource": "arn:aws:s3:::DEIN_BUCKET_NAME/*",
