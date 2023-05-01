@@ -130,3 +130,37 @@ Mit diesem Code kannst du die Environment Variablen testen: Siehe file in python
 Fuege den Code im File python/02-sns-test.py in deine Lambda Funktion ein und deploye erneut.
 Wurde eine E-Mail and deine registrierte Adresse gesendet?
 
+### DynamoDB Test
+
+Fuege den Code im File python/03-dynamodb-test.py in deine Lambda Funktion ein und deploye erneut.
+Wird ein Eintrag im Table vorgenommen?
+
+
+### API Test
+
+Fuege den Code im File python/04-api-test.py in deine Lambda Funktion ein und deploye erneut.
+Wird der Bitcoin Preis richtig angezeigt?
+
+## The stage is yours!
+
+Nun liegt es an dir die Lambda Function so zu implementieren, dass alle Bediungen erfuellt sind.
+Die folgenden Funktionen sollten dir helfen, muessen aber noch ausformuliert werden:
+
+```python
+def get_stock_price():
+
+def save_stock_price(stock_price):
+
+def get_all_stock_prices():
+
+def is_good_price(all_stock_prices):
+
+def sns_alert(data):
+
+stock_price = get_stock_price()
+save_stock_price(stock_price)
+all_stock_prices = get_all_stock_prices()
+if is_good_price(all_stock_prices):
+    sns_alert(stock_price)
+
+```
