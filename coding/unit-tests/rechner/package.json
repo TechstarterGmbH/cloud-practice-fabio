@@ -1,0 +1,16 @@
+{
+  "name": "rechner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0"
+  }
+}
