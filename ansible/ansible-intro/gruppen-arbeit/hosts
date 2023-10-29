@@ -1,0 +1,1 @@
+host1 ansible_host=3.70.112.195 ansible_user=ec2-user ansible_port=22 ansible_ssh_private_key_file=/home/fabio/.ssh/ec2_id_rsa

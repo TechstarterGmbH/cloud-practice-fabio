@@ -1,0 +1,48 @@
+---
+- name: Intro to Ansible Playbooks
+  hosts: all
+
+  tasks:
+  - name: Add the user 'foo'
+    ansible.builtin.user:
+      name: foo
+    become: yes
+    become_method: sudo
+  - name: upgrade all packages
+    yum:
+      name: '*'
+      state: latest
+    become: yes
+  - name: install the latest version of nginx
+    yum:
+      name: nginx
+      state: latest
+    become: yes
+  - name: Copy file with owner and permissions
+    ansible.builtin.copy:
+      src: ./index.html
+      dest: /usr/share/nginx/html/index.html
+      owner: root
+      group: root
+      mode: '0644'
+    become: yes
+  - name: Make sure a service unit is running
+    ansible.builtin.systemd:
+      state: started
+      name: nginx
+    become: yes
+  - name: Copy file with owner and permissions
+    ansible.builtin.copy:
+      src: ./update.sh
+      dest: /opt/ansible-update.sh
+      owner: root
+      group: root
+      mode: '0744'
+    become: yes
+  - name: Creates a cron file under /etc/cron.d
+    ansible.builtin.cron:
+      name: ansible
+      minute: "0"
+      hour: "*"
+      user: root
+      job: "/opt/ansible-update.sh"
