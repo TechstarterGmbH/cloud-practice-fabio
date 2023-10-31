@@ -95,7 +95,7 @@ touch hosts
 host1 ansible_host=DEINE_EC2_PUBLIC_IP ansible_user=ec2-user ansible_port=22 ansible_ssh_private_key_file=/pfad/zu/deinem/ssh-private-key
 ```
 
-- Um dein Inventory zu testen, führe den ping Modul aus
+- Um dein Inventory zu testen, führe das ping Modul aus
 
 ```bash
 ansible -i hosts all -m ping
