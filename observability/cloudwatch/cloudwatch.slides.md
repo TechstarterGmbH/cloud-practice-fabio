@@ -8,6 +8,8 @@ class: invert
 
 ## AWS CloudWatch
 
+![](./imgs/logo.png)
+
 ---
 
 ### Szenario
