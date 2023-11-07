@@ -8,7 +8,7 @@ class: invert
 
 ## AWS CloudWatch
 
-![](./imgs/logo.png)
+![w:400](./imgs/logo.png)
 
 ---
 
