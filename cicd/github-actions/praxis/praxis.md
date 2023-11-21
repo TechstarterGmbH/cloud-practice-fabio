@@ -370,5 +370,5 @@ terraform -chdir=infra destroy
 ```yaml
 ...
      - run: terraform -chdir=./infra apply -auto-approve
-     - run: aws s3 sync ./build s3://DEIN_BUCKET_NAME/
+     - run: aws s3 sync --region eu-central-1 ./build s3://DEIN_BUCKET_NAME/ --profile techstarter
 ```

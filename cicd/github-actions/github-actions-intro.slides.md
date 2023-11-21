@@ -15,6 +15,8 @@ class: invert
     - GitHub Actions ist eine integrierte Funktion von GitHub, die Automatisierung in den Entwicklungsworkflow ermöglicht.
     - Mit GitHub Actions können Entwickler Workflows erstellen, um **verschiedene Aktionen automatisch auszuführen**.
 
+---
+
 - **Bedeutung von Automatisierung im Entwicklungsprozess:**
      - Automatisierung spielt eine entscheidende Rolle in der Effizienz des Entwicklungsprozesses.
      - GitHub Actions ermöglicht die **Automatisierung von wiederholbaren Aufgaben**, was Zeit spart und die Zuverlässigkeit des Codes verbessert.
@@ -42,6 +44,8 @@ class: invert
 - **Workflow:**
     - Ein Workflow ist eine automatisierte Abfolge von Aktionen, die in einem Repository ausgeführt wird.
     - Workflows werden in einer **YAML-Datei** definiert und können auf verschiedene Ereignisse reagieren.
+
+---
 
 - **Aktionen (Actions):**
     - Aktionen sind einzelne Aufgaben, die im Workflow ausgeführt werden.
