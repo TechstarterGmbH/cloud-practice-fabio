@@ -1,7 +1,7 @@
 GRIP_BIN ?= $(shell which grip)
 WORKING_DIR ?= $(shell pwd)
 
-ALL_MD_FILES := $(shell find $(WORKING_DIR) -name "*.md" | grep -v "slides.md")
+ALL_MD_FILES := $(shell find $(WORKING_DIR)/cicd/jenkins-pipeline -name "*.md" | grep -v "slides.md")
 SLIDES_MD_FILES := $(shell find $(WORKING_DIR) -name "*slides.md")
 ALL_HTML_FILES := $(ALL_MD_FILES:.md=.html)
 ALL_PDF_FILES := $(ALL_MD_FILES:.md=.pdf)

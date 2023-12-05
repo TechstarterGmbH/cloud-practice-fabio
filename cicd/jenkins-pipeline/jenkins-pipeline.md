@@ -55,7 +55,8 @@ docker ps
 
 ```bash
 sudo mkdir -p /var/jenkins_home
-vim docker-compose.yml
+mkdir $HOME/jenkins
+vim $HOME/jenkins/docker-compose.yml
 ```
 
 ```yaml
@@ -76,7 +77,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 ```
 
-- Immer noch auf der EC2 Instanz und im `jenkins` Ordner, starte den Container
+- Immer noch auf der EC2 Instanz und im `$HOME/jenkins` Ordner, starte den Container
 
 ```bash
 sudo docker compose up
