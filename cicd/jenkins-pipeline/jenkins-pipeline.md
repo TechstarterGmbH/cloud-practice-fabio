@@ -17,7 +17,7 @@
 - Verbinde dich per SSH mit der EC2 Instance.
 
 ```bash
-ssh -i path/to/your/key.pem ec2-user@<public-ip>
+ssh -i path/to/your/key.pem ubuntu@<public-ip>
 ```
 
 - Installiere docker und docker compose auf der EC2 Instanz
