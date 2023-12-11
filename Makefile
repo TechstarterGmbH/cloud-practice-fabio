@@ -1,7 +1,7 @@
 GRIP_BIN ?= $(shell which grip)
 WORKING_DIR ?= $(shell pwd)
 
-ALL_MD_FILES := $(shell find $(WORKING_DIR) -name "*.md" | grep -v "slides.md")
+ALL_MD_FILES := $(shell find $(WORKING_DIR)/cicd/gitlab-ci -name "*.md" | grep -v "slides.md")
 SLIDES_MD_FILES := $(shell find $(WORKING_DIR) -name "*slides.md")
 ALL_HTML_FILES := $(ALL_MD_FILES:.md=.html)
 ALL_PDF_FILES := $(ALL_MD_FILES:.md=.pdf)
@@ -24,17 +24,13 @@ all-clean:
 
 slides: $(SLIDES_PDF_FILES)
 
-$(ALL_PDF_FILES): %.pdf: %.html
+$(ALL_PDF_FILES): %.pdf: %.md
 	@echo "Building $@ from $<"
-	@wkhtmltopdf --enable-local-file-access $< $@
+	@htmldoc --no-toc --no-title --charset utf-8 -f $@ $<
 
 $(SLIDES_PDF_FILES): %.pdf: %.md
 	@echo "Building $@ from $<"
 	@marp $< --pdf --allow-local-files --output $@
-
-%.html: %.md
-	@echo "Building HTML $@ from $<"
-	@${GRIP_BIN} $< --export $@
 
 
 install-deps:
