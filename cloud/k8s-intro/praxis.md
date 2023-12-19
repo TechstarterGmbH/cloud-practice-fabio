@@ -64,7 +64,7 @@ spec:
 
 ```bash
 kubectl delete pod nginx-pod
-kubeclt get pod
+kubectl get pod
 kubectl delete pod nginx-replicaset-{{HIER DEN NAMEN VON EINEM DER PODS EINFÜGEN}}
 kubectl get pod
 ```
