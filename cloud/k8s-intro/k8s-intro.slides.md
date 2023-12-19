@@ -6,11 +6,11 @@ class: invert
 
 # Einführung in Kubernetes
 
-![](./imgs/k8s.png)
+![w:500](./imgs/k8s.png)
 
 ---
 
-![](./imgs/k8smeme.jpg)
+![w:500](./imgs/k8smeme.jpg)
 
 ---
 
@@ -61,12 +61,24 @@ class: invert
 
 - **Control Plane**:
     - Das Gehirn des Clusters, das für die Entscheidungsfindung und die Orchestrierung der Clusterknoten verantwortlich ist.
+
+---
+
 - **Kubelet**:
     - Eine auf jedem Knoten (Node) laufende Agent, die sicherstellt, dass die Container in einem Pod laufen.
+
+---
+
 - **API Server**:
     - Die zentrale Verwaltungsschnittstelle des Clusters. Dient als Kommunikationshub zwischen verschiedenen Teilen.
+
+---
+
 - **Scheduler**:
     - Verantwortlich für die Zuweisung von Pods zu Nodes basierend auf Ressourcenverfügbarkeit und Anforderungen.
+
+---
+
 - **etcd**:
     - Eine leichte und verteilte Key-Value Datenbank, die die gesamte Konfiguration und den Zustand des Clusters speichert.
 
@@ -98,6 +110,8 @@ spec:
 - Stellt sicher, dass eine spezifizierte Anzahl von Pod-Replikaten läuft. Nützlich für die Skalierung und Redundanz.
 - Wrapper um die Pod Resource (spec inside spec)
 
+---
+
 ```yaml
 apiVersion: apps/v1
 kind: ReplicaSet
@@ -124,6 +138,8 @@ spec:
 
 - Ermöglicht die deklarative Aktualisierung von Pods und ReplicaSets.
 - Wrapper um ein ReplicaSet
+
+---
 
 ```yaml
 apiVersion: apps/v1
