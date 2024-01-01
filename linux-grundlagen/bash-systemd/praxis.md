@@ -20,7 +20,7 @@ Das Skript wird in mehrere Funktionen unterteilt, um die Lesbarkeit und Wartbark
 #!/bin/bash
 
 HOST="google.com" # Standard-Host, kann überschrieben werden
-LATENCY_FILE="~/latency_data.txt" # Dateiname für die Latenzdaten
+LATENCY_FILE="/tmp/latency_data.txt" # Dateiname für die Latenzdaten
 ```
 
 - **Funktion zur Messung der Latenz:**
@@ -66,6 +66,7 @@ main
 2.1 **Unit-Datei erstellen:**
 
 - Öffne ein Terminalfenster.
+- Erstelle den folgenden Pfad, falls er noch nicht existiert `mkdir -p ~/.config/systemd/user`
 - Erstelle eine neue Unit-Datei für den Benutzerdienst im entsprechenden SystemD-Verzeichnis. Benutze den Befehl: `touch ~/.config/systemd/user/latency_check.service`.
 - Öffne die Datei mit einem Texteditor, zum Beispiel: `nano ~/.config/systemd/user/latency_check.service`.
 
@@ -115,30 +116,36 @@ WantedBy=default.target
 
 - Öffne die `.bashrc`-Datei in deinem Home-Verzeichnis. Du kannst dies tun, indem du `nano ~/.bashrc` in deinem Terminal eingibst.
 
-4.2 **Funktion zur Latenzanzeige hinzufügen:**
+Um die Latenzinformation dynamisch im Prompt anzuzeigen, unter Verwendung der `PROMPT_COMMAND`-Funktion, kannst du die `.bashrc`-Datei wie folgt anpassen:
 
-- Füge am Ende der `.bashrc`-Datei eine Funktion hinzu, die die Latenzinformation aus der Datei liest.
+4.2 **Funktion zur dynamischen Anzeige der Latenz hinzufügen:**
+
+- Füge am Ende der `.bashrc`-Datei eine Funktion hinzu, die die Latenzinformation aus der Datei liest und in einer Variablen speichert.
+- Beispiel:
 
 ```bash
-get_latency() {
-    if [ -f ~/latency_data.txt ]; then
-        cat ~/latency_data.txt
+update_latency() {
+    if [ -f /tmp/latency_data.txt ]; then
+        LATENCY=$(cat /tmp/latency_data.txt)
     else
-        echo "No Latency Data"
+        LATENCY="No Latency Data"
     fi
 }
 ```
-- Diese Funktion liest den Inhalt der Datei `latency_data.txt`. Falls die Datei nicht existiert oder leer ist, gibt sie eine entsprechende Meldung aus.
 
-4.3 **Anpassen des Prompts:**
+- Diese Funktion liest den Inhalt der Datei `latency_data.txt` und speichert ihn in der Variable `LATENCY`. Falls die Datei nicht existiert oder leer ist, wird eine entsprechende Meldung in `LATENCY` gespeichert.
 
-- Um die Latenzinformation am Anfang des Prompts anzuzeigen, ohne die vorhandene Prompt-Konfiguration zu überschreiben, kannst du folgende Zeile hinzufügen:
+4.3 **Anpassen des Prompts mit `PROMPT_COMMAND`:**
+
+- Anstelle der direkten Modifikation der `PS1`-Variablen, nutze die `PROMPT_COMMAND`-Variable, um `update_latency` aufzurufen, bevor der Prompt angezeigt wird. Dies stellt sicher, dass die Latenzdaten bei jedem neuen Prompt aktualisiert werden.
+- Beispiel:
 
 ```bash
-PS1="$(get_latency)ms $PS1"
+PROMPT_COMMAND="update_latency"
+PS1="\$LATENCY ms $PS1"
 ```
 
-- Diese Zeile modifiziert die `PS1`-Variable, die den Prompt definiert, indem sie die Ausgabe der `get_latency`-Funktion gefolgt von der aktuellen `PS1`-Konfiguration einfügt.
+- `PROMPT_COMMAND` führt `update_latency` vor jeder neuen Eingabeaufforderung aus, und `PS1` beinhaltet nun die aktuelle Latenzinformation aus der `LATENCY`-Variablen.
 
 4.4 **Änderungen übernehmen:**
 

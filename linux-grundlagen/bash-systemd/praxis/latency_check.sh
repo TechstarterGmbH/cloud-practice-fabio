@@ -2,7 +2,7 @@
 
 # Variablen für den Host und den Dateinamen
 HOST="google.com" # Standard-Host, kann überschrieben werden
-LATENCY_FILE="~/latency_data.txt" # Dateiname für die Latenzdaten
+LATENCY_FILE="/tmp/latency_data.txt" # Dateiname für die Latenzdaten
 
 # Funktion, um die durchschnittliche Latenz zu messen
 measure_latency() {
