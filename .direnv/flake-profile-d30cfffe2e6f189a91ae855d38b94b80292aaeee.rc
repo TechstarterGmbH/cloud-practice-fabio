@@ -29,7 +29,7 @@ NIX_BINTOOLS='/nix/store/syp0507hrby53pprfi7n4wppms3b7ba2-binutils-wrapper-2.40'
 export NIX_BINTOOLS
 NIX_BINTOOLS_WRAPPER_TARGET_HOST_x86_64_unknown_linux_gnu='1'
 export NIX_BINTOOLS_WRAPPER_TARGET_HOST_x86_64_unknown_linux_gnu
-NIX_BUILD_CORES='20'
+NIX_BUILD_CORES='8'
 export NIX_BUILD_CORES
 NIX_CC='/nix/store/3hbxw05vfs6m1155xa6pvribs3bv777n-gcc-wrapper-12.2.0'
 export NIX_CC
@@ -125,7 +125,7 @@ declare -a envHostHostHooks=('ccWrapper_addCVars' 'bintoolsWrapper_addLDVars' )
 declare -a envHostTargetHooks=('ccWrapper_addCVars' 'bintoolsWrapper_addLDVars' )
 declare -a envTargetTargetHooks=()
 declare -a fixupOutputHooks=('if [ -z "${dontPatchELF-}" ]; then patchELF "$prefix"; fi' 'if [[ -z "${noAuditTmpdir-}" && -e "$prefix" ]]; then auditTmpdir "$prefix"; fi' 'if [ -z "${dontGzipMan-}" ]; then compressManPages "$prefix"; fi' '_moveLib64' '_moveSbin' '_moveSystemdUserUnits' 'patchShebangsAuto' '_pruneLibtoolFiles' '_doStrip' )
-guess='20'
+guess='8'
 initialPath='/nix/store/w8vm09hri2zz7yacryzzzxvsapik4ps4-coreutils-9.1 /nix/store/4cxs4cigh2zdxvma52ygm3mh2igq70iw-findutils-4.9.0 /nix/store/vikpb6rhmi8zzgsx8syjng9dic8dplm7-diffutils-3.9 /nix/store/4mca20b13q88s6llkr8mc468rh9l9bmr-gnused-4.9 /nix/store/b4in4hmq54h6l34a0v6ha40z97c0lzw2-gnugrep-3.7 /nix/store/p7v8rc82yi4zngjw2z7isgqvfi32l1aj-gawk-5.2.1 /nix/store/2gcfy5f68y7gkryp3wrjmvlci42qb61a-gnutar-1.35 /nix/store/5xzh0z66hpcd3k578my76lx4qgra334q-gzip-1.12 /nix/store/6d9vlwwy7kvxjqmqg4cldgg9mr8nflff-bzip2-1.0.8-bin /nix/store/qlcm8dzsaa6wyycmx7in8rz6x3pzf6zf-gnumake-4.4.1 /nix/store/0rwyq0j954a7143p0wzd4rhycny8i967-bash-5.2-p15 /nix/store/0g52i0ih3h0d9s40m84gksi2jjm4k3bf-patch-2.7.6 /nix/store/agry2lhy6ilgyacx75w2ycqsdfwr513f-xz-5.4.3-bin /nix/store/rgg874xkzlfmkzkm7911dwnihswkf54g-file-5.44'
 mesonFlags=''
 export mesonFlags
@@ -1831,8 +1831,8 @@ updateSourceDateEpoch ()
         fi;
     fi
 }
-PATH="$PATH:$nix_saved_PATH"
-XDG_DATA_DIRS="$XDG_DATA_DIRS:$nix_saved_XDG_DATA_DIRS"
+PATH="$PATH${nix_saved_PATH:+:$nix_saved_PATH}"
+XDG_DATA_DIRS="$XDG_DATA_DIRS${nix_saved_XDG_DATA_DIRS:+:$nix_saved_XDG_DATA_DIRS}"
 export NIX_BUILD_TOP="$(mktemp -d -t nix-shell.XXXXXX)"
 export TMP="$NIX_BUILD_TOP"
 export TMPDIR="$NIX_BUILD_TOP"
