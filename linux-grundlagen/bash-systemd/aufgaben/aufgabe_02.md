@@ -29,4 +29,4 @@ log "Hallo"
 - Erstelle auch hier wieder eine SystemD Unit, welche das Script in regelmäßigen Abständen aufruft.
 - Integriere auch diesen Wert in deine Prompt.
 
-- (https://stackoverflow.com/a/9229396)[https://stackoverflow.com/a/9229396]
+- [https://stackoverflow.com/a/9229396](https://stackoverflow.com/a/9229396)
