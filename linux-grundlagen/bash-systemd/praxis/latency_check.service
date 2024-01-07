@@ -1,0 +1,11 @@
+[Unit]
+Description=Latenz Check Service
+
+[Service]
+ExecStartPre=/bin/bash -c 'echo "Starting latency check at $(date)" >> /tmp/latency_check.log'
+ExecStart=/home/DEIN_BENUTZERNAME/latency_check.sh
+Restart=always
+RestartSec=20
+
+[Install]
+WantedBy=default.target
