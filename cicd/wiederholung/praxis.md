@@ -2,8 +2,10 @@
 
 ## Basics
 
-- Forke folgendes Repository:
-https://github.com/martindubb/wiederholung
+- Clone folgendes Repo
+https://github.com/0xfabio/ts-wiederholung
+- Navigiere auf folgenden Branch: `start-here`
+- Lösche den `.git` Ordner (erstelle ggf. ein neues git repo `git init`)
 
 ### Schritt 1: Erstellen einer GitHub Actions Pipeline
 - **Handlung:** Füge eine neue GitHub Actions Workflow-Datei hinzu.
